@@ -15,7 +15,8 @@ import UIKit
 public class CoolImageLibrary: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
  public  var delegate: CoolImageLibraryDownloadProgressDelegate?
-
+ private var downloadingUrl:String?
+ private let imageCache = NSCache<NSString, UIImage>()
  public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
     
     DispatchQueue.main.async {
@@ -25,6 +26,7 @@ public class CoolImageLibrary: NSObject, URLSessionDelegate, URLSessionDownloadD
     
  public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
             if let data = try? Data(contentsOf: location), let image = UIImage(data: data) {
+                imageCache.setObject(image, forKey: downloadingUrl as! NSString)
                 DispatchQueue.main.async {
                     self.delegate?.imageDownloaded(image: image)
                 }
@@ -36,9 +38,16 @@ public class CoolImageLibrary: NSObject, URLSessionDelegate, URLSessionDownloadD
     
     public func downloadImage(imgUrl: String) {
         let url = URL(string: imgUrl)
+        downloadingUrl = imgUrl
+        if let cachedImage = imageCache.object(forKey: imgUrl as NSString) {
+            self.delegate?.imageDownloaded(image: cachedImage)
+        } else {
+        
+        
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config, delegate: self, delegateQueue: nil)
         session.downloadTask(with: url!).resume()
+        }
     }
 }
     
