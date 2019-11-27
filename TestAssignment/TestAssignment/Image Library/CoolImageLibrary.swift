@@ -14,7 +14,7 @@ import UIKit
 
 public class CoolImageLibrary: NSObject, URLSessionDelegate, URLSessionDownloadDelegate {
     
- private  var delegate: CoolImageLibraryDownloadProgressDelegate?
+ public  var delegate: CoolImageLibraryDownloadProgressDelegate?
 
  public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didWriteData bytesWritten: Int64, totalBytesWritten: Int64, totalBytesExpectedToWrite: Int64) {
     
