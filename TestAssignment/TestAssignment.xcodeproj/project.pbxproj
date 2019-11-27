@@ -15,6 +15,7 @@
 		86B82C0B238E4CFF000930A0 /* TestAssignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B82C0A238E4CFF000930A0 /* TestAssignmentTests.swift */; };
 		86B82C16238E4CFF000930A0 /* TestAssignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B82C15238E4CFF000930A0 /* TestAssignmentUITests.swift */; };
 		86B82C25238E5518000930A0 /* CoolImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B82C24238E5518000930A0 /* CoolImageLibrary.swift */; };
+		86B82C27238E6DDA000930A0 /* CircularSuperPuperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B82C26238E6DDA000930A0 /* CircularSuperPuperView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		86B82C15238E4CFF000930A0 /* TestAssignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssignmentUITests.swift; sourceTree = "<group>"; };
 		86B82C17238E4CFF000930A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86B82C24238E5518000930A0 /* CoolImageLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolImageLibrary.swift; sourceTree = "<group>"; };
+		86B82C26238E6DDA000930A0 /* CircularSuperPuperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularSuperPuperView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				86B82BFC238E4CFF000930A0 /* Assets.xcassets */,
 				86B82BFE238E4CFF000930A0 /* LaunchScreen.storyboard */,
 				86B82C01238E4CFF000930A0 /* Info.plist */,
+				86B82C26238E6DDA000930A0 /* CircularSuperPuperView.swift */,
 			);
 			path = TestAssignment;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			files = (
 				86B82BF8238E4CFF000930A0 /* ViewController.swift in Sources */,
 				86B82C25238E5518000930A0 /* CoolImageLibrary.swift in Sources */,
+				86B82C27238E6DDA000930A0 /* CircularSuperPuperView.swift in Sources */,
 				86B82BF6238E4CFF000930A0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

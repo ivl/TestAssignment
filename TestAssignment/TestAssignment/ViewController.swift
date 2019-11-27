@@ -16,14 +16,12 @@ class ViewController: UIViewController, CoolImageLibraryDownloadProgressDelegate
     "https://images.unsplash.com/photo-1527737071469-99ca92035fd6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2662&q=80"]
     
     static var counter: Int = 0
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet weak var circularProgress: CircularSuperPuperView!
     
     func imageDownloaded(image: UIImage) {
-        self.imageView.contentMode = .scaleAspectFit
-        self.imageView.clipsToBounds = true
-        self.imageView.image = image
+        self.circularProgress.image = image
+        self.circularProgress.layer.cornerRadius = self.circularProgress.frame.width/2
+        self.circularProgress.clipsToBounds = true
     }
     
     func downloadingErorr() {
@@ -31,7 +29,7 @@ class ViewController: UIViewController, CoolImageLibraryDownloadProgressDelegate
     }
     
     func providePercentage(progress: Float) {
-         self.progressView.progress = progress
+        circularProgress.setProgressWithAnimation(duration: 1.0, value: progress)
     }
     
     
@@ -42,6 +40,11 @@ class ViewController: UIViewController, CoolImageLibraryDownloadProgressDelegate
         // Do any additional setup after loading the view.
         imgLibrary = CoolImageLibrary()
         imgLibrary?.delegate = self
+        self.circularProgress.image = UIImage(named : "placeholder")
+        self.circularProgress.layer.cornerRadius = self.circularProgress.frame.width/2
+        self.circularProgress.clipsToBounds = true
+        circularProgress.currentLayerColor = UIColor.cyan
+        circularProgress.progressLayerColor = UIColor.purple
         
     }
 
@@ -56,5 +59,9 @@ class ViewController: UIViewController, CoolImageLibraryDownloadProgressDelegate
             ViewController.counter = 0
         }
     }
+  
 }
+
+
+
 
